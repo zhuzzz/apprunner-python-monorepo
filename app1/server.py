@@ -18,7 +18,7 @@ def hello_world(request):
     return Response(message)
 
 if __name__ == '__main__':
-    port = 5742
+    port = 8080
     with Configurator() as config:
         config.add_route('hello', '/')
         config.add_view(hello_world, route_name='hello')
