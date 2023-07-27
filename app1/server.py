@@ -1,5 +1,6 @@
 import sys
 sys.path.append('../')
+
 import random
 from libs.base import adder2
 from wsgiref.simple_server import make_server
@@ -13,11 +14,11 @@ def hello_world(request):
     name = os.environ.get('NAME')
     if name == None or len(name) == 0:
         name = "world"
-    message = "Hello, " + name + "!\nThe sum is " + res
+    message = "Hello, " + name + "!\nThe sum of " + str(x) + " and " + str(y) + " is " + str(res)
     return Response(message)
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT"))
+    port = 5742
     with Configurator() as config:
         config.add_route('hello', '/')
         config.add_view(hello_world, route_name='hello')
